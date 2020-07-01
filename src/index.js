@@ -7,10 +7,6 @@ function getElements(response) {
   if (response) {
 
     const dino = response[0][0];
-    // const splicedResponse;
-
-    // splicedResponse = repsonse.pop();
-    // dino = splicedResponse[0][1];
 
     $('#dino-output').text(dino);
     $('#error-output').text("");
