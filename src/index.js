@@ -2,14 +2,29 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import $ from "jquery";
+import { Dino } from './dino';
 
 function getElements(response) {
+  
+  let dino;
+  
   if (response) {
 
-    const dino = response[0][0];
+    dino = new Dino(response[0][0]);
+    dino.splitDino();
 
-    $('#dino-output').text(dino);
+    let alphabitArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+    dino.nameArray.forEach(function(i) {
+      $('#dino-output').append(`<span class="letter" id="${i}">__  </span>`);
+    });
+
+    alphabitArray.forEach(function(i) {
+      $('#keyboard-output').append(`<button type="button" class="btn keyboard btn-primary" id="${i}">${i}</button>`)
+    });
+
     $('#error-output').text("");
+
   } else {
     $('#dino-output').text("");
     $('#error-output').text(`There was an error: ${response.message}`);
@@ -18,6 +33,10 @@ function getElements(response) {
 
 $(document).ready(function() {
   $('#generate').click(function() {
+
+    $('.keyboard').remove();
+    $('span').remove();
+
     fetch(`http://dinoipsum.herokuapp.com/api/?format=json`)
       .then(function(response) {
         if (!response.ok) {
