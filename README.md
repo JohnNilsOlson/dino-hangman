@@ -1,16 +1,24 @@
-# Project Title
+# Dino-Hangman
+July 2nd, 2020 - Epicodus Week 6
 
 ## Project Description
-Description.
+A practice in using APIs.
 
 ## Contributors
-JohnNils Olson
+JohnNils Olson  
+Erich Richter
+Noel Kirkland
 
 ## Usage
-Program usage.
+User can play a game of hangman with a random dinosaur name.
 
 ## Technologies Used
-Technologies used.
+HTML  
+CSS  
+bootstrap  
+jQuery  
+JavaScript
+webpack  
 
 ## Installation Instructions
 * Cloning instructions.
@@ -21,8 +29,10 @@ Technologies used.
 No known issues.
 
 ## Contact Information
-JohnNils Olson - johnnils@gmail.com
+JohnNils Olson - johnnils@gmail.com  
+Erich Richter - erich.richter@gmail.com  
+Noel Kirkland - noelkirkland@gmail.com
 
 ## License
 The [MIT] license.
-Copyright (c) 2020 JohnNils Olson
+Copyright (c) 2020 JohnNils Olson, Erich Richter, Noel Kirkland
