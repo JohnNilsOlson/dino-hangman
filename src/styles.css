@@ -14,6 +14,12 @@
 .mistake {
   font-size: xx-large;
   font-weight: bold;
+  color: red;
+}
+
+#header {
+  font-size: xx-large;
+  font-weight: bolder;
 }
 
 #game-status {

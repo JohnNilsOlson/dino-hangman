@@ -58,6 +58,7 @@ $(document).ready(function() {
   });
 
   $(document).on('click','.keyboard',function() {
+    this.remove();
 
     let nameArray = [];
     let winCheckArray = [];
@@ -83,10 +84,12 @@ $(document).ready(function() {
 
     if (mistakes === 10) {
       $('#game-status').append(`<span class="game-status">Game Over!</span>`);
+      $('.keyboard').remove()
     }
 
     if (winCheckArray.indexOf("__  ") === -1 ) {
       $('#game-status').append(`<span class="game-status">You win!</span>`);
+      $('.keyboard').remove();
     }
 
   });
