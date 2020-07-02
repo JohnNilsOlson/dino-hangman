@@ -11,6 +11,16 @@
   font-weight: bold;
 }
 
+.mistake {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+#game-status {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
 .blank {
   font-size: xx-large;
   font-weight: bold;

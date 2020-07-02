@@ -33,6 +33,10 @@ function getElements(response) {
 }
 
 $(document).ready(function() {
+
+  let guess = true;
+  let mistakes = 0;
+
   $('#generate').click(function() {
 
     $('.keyboard').remove();
@@ -52,14 +56,38 @@ $(document).ready(function() {
         getElements(jsonifiedResponse);
       });
   });
-  //document.getElementById('demo').getAttribute('value');
+
   $(document).on('click','.keyboard',function() {
+
+    let nameArray = [];
+    let winCheckArray = [];
+
+    Array.from(document.getElementsByClassName('letter')).forEach((i) => {
+      nameArray.push(i.dataset.letter);
+    });
+
     Array.from(document.getElementsByClassName('letter')).forEach((i) => {
       if (i.dataset.letter === this.value) {
-        $(i).text(i.dataset.letter);
-      } else {
-        return console.log('false!');
-      }
+        $(i).text(i.dataset.letter);  
+      } 
     });
+
+    Array.from(document.getElementsByClassName('letter')).forEach((i) => {
+      winCheckArray.push(i.innerHTML);
+    });
+
+    if (nameArray.indexOf(this.value) < 0 ) {
+      mistakes ++;
+      $('#mistakes').append(`<span class="mistake"> X </span>`)
+    }
+
+    if (mistakes === 10) {
+      $('#game-status').append(`<span class="game-status">Game Over!</span>`);
+    }
+
+    if (winCheckArray.indexOf("__  ") === -1 ) {
+      $('#game-status').append(`<span class="game-status">You win!</span>`);
+    }
+
   });
 });
