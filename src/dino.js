@@ -1,24 +1,39 @@
 export class Dino {
-  constructor(name, nameArray, hiddenArray, nameGuess) {
+  constructor(name) {
     this.name = name;
-    this.nameArray;
+    this.nameArray = [];
     this.hiddenArray;
     this.nameGuess;
   }
 
   splitDino() {
+    
     this.nameArray = this.name.split('');
   }
 
   guessLetter(letter) {
-    if (this.nameArray.includes(letter)) {
-      return true;
-    } else {
-      return false;
+    for (let char of this.nameArray) {
+      if (char.includes(letter)) {
+        alert('true');
       }
     }
+  }
 }
 
+
+
+// function splitDino() {
+//   let name = "velociraptor"
+//   let nameArray = name.split('');
+//   let letter = "o"
+//   let hiddenArray = []
+//   for (let char of nameArray) {
+//     if (char.includes(letter)) {
+//       hiddenArray.push(char)
+//     }
+//   }
+//   return hiddenArray
+// }
 
 
 

@@ -5,22 +5,23 @@ import $ from "jquery";
 import { Dino } from './dino';
 
 function getElements(response) {
-  
+
   let dino;
   
   if (response) {
 
-    dino = new Dino(response[0][0]);
+    dino = new Dino((response[0][0]).toLowerCase());
     dino.splitDino();
 
     let alphabitArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
     dino.nameArray.forEach(function(i) {
-      $('#dino-output').append(`<span class="letter" id="${i}">__  </span>`);
+      $('#dino-output').append(`<span class="letter" data-letter="${i}">__  </span>`);
+    
     });
 
     alphabitArray.forEach(function(i) {
-      $('#keyboard-output').append(`<button type="button" class="btn keyboard btn-primary" id="${i}">${i}</button>`)
+      $('#keyboard-output').append(`<button type="button" class="btn btn-primary keyboard" id="${i}" value="${i}">${i}</button>`);
     });
 
     $('#error-output').text("");
@@ -50,5 +51,15 @@ $(document).ready(function() {
       .then(function(jsonifiedResponse) {
         getElements(jsonifiedResponse);
       });
+  });
+  //document.getElementById('demo').getAttribute('value');
+  $(document).on('click','.keyboard',function() {
+    Array.from(document.getElementsByClassName('letter')).forEach((i) => {
+      if (i.dataset.letter === this.value) {
+        $(i).text(i.dataset.letter);
+      } else {
+        return console.log('false!');
+      }
+    });
   });
 });
